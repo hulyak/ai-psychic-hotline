@@ -1,0 +1,204 @@
+/* ============================================
+   FATE METER - POLISHED DESIGN
+   ============================================ */
+
+.fate-meter-container {
+  position: relative;
+  padding: 2rem 1.75rem;
+  margin-top: 2.5rem;
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg, rgba(2, 6, 23, 0.45) 0%, rgba(17, 24, 39, 0.5) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(163, 230, 53, 0.35);
+  box-shadow:
+    0 6px 25px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(163, 230, 53, 0.15);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.fate-meter-container:hover {
+  border-color: rgba(163, 230, 53, 0.5);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.5),
+    0 0 50px rgba(163, 230, 53, 0.25);
+}
+
+/* Decorative Glow */
+.fate-meter-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12rem;
+  height: 12rem;
+  opacity: 0.08;
+  background: radial-gradient(circle at center, var(--accent-secondary) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+/* Question */
+.fate-meter-question {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--accent-secondary);
+  text-shadow: 0 0 15px rgba(163, 230, 53, 0.4);
+  letter-spacing: 0.02em;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* Buttons Container */
+.fate-meter-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  justify-content: center;
+  align-items: stretch;
+  position: relative;
+  z-index: 10;
+}
+
+/* Accept Button */
+.fate-accept-btn {
+  padding: 1rem 1.75rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #020617;
+  background: linear-gradient(135deg, var(--accent-primary) 0%, #fb923c 100%);
+  border: none;
+  border-radius: 9999px;
+  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fate-accept-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 24px rgba(249, 115, 22, 0.5);
+}
+
+.fate-accept-btn:active {
+  transform: translateY(0) scale(1);
+}
+
+/* Defy Button */
+.fate-defy-btn {
+  padding: 1rem 1.75rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-secondary);
+  background: transparent;
+  border: 2px solid var(--accent-secondary);
+  border-radius: 9999px;
+  box-shadow: 0 0 15px rgba(163, 230, 53, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fate-defy-btn:hover {
+  background: var(--accent-secondary);
+  color: #020617;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 25px rgba(163, 230, 53, 0.4);
+}
+
+.fate-defy-btn:active {
+  transform: translateY(0) scale(1);
+}
+
+/* Result Display */
+.fate-meter-result {
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.fate-meter-text {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 15px currentColor;
+}
+
+.fate-meter-text.accept {
+  color: var(--accent-primary);
+}
+
+.fate-meter-text.defy {
+  color: var(--accent-secondary);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (min-width: 640px) {
+  .fate-meter-buttons {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .fate-accept-btn,
+  .fate-defy-btn {
+    flex: 1;
+    max-width: 250px;
+  }
+}
+
+@media (min-width: 768px) {
+  .fate-meter-container {
+    padding: 2.25rem 2rem;
+    margin-top: 3rem;
+  }
+
+  .fate-meter-question {
+    font-size: 1.375rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .fate-accept-btn,
+  .fate-defy-btn {
+    padding: 1.125rem 2rem;
+    font-size: 1.0625rem;
+  }
+
+  .fate-meter-text {
+    font-size: 1.375rem;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY & MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .fate-meter-container,
+  .fate-accept-btn,
+  .fate-defy-btn {
+    transition: none;
+  }
+
+  .fate-accept-btn:hover,
+  .fate-defy-btn:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .fate-meter-container {
+    border-width: 2px;
+  }
+
+  .fate-accept-btn,
+  .fate-defy-btn {
+    border-width: 2px;
+  }
+}

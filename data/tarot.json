@@ -1,0 +1,158 @@
+{
+  "cards": [
+    {
+      "id": "fool",
+      "name": "The Fool",
+      "uprightMeaning": "New beginnings, innocence, spontaneity, free spirit",
+      "reversedMeaning": "Recklessness, taken advantage of, inconsideration",
+      "imageUrl": "/cards/fool.svg"
+    },
+    {
+      "id": "magician",
+      "name": "The Magician",
+      "uprightMeaning": "Manifestation, resourcefulness, power, inspired action",
+      "reversedMeaning": "Manipulation, poor planning, untapped talents",
+      "imageUrl": "/cards/magician.svg"
+    },
+    {
+      "id": "high-priestess",
+      "name": "The High Priestess",
+      "uprightMeaning": "Intuition, sacred knowledge, divine feminine, subconscious mind",
+      "reversedMeaning": "Secrets, disconnected from intuition, withdrawal",
+      "imageUrl": "/cards/high-priestess.svg"
+    },
+    {
+      "id": "empress",
+      "name": "The Empress",
+      "uprightMeaning": "Femininity, beauty, nature, nurturing, abundance",
+      "reversedMeaning": "Creative block, dependence on others",
+      "imageUrl": "/cards/empress.svg"
+    },
+    {
+      "id": "emperor",
+      "name": "The Emperor",
+      "uprightMeaning": "Authority, establishment, structure, father figure",
+      "reversedMeaning": "Domination, excessive control, lack of discipline",
+      "imageUrl": "/cards/emperor.svg"
+    },
+    {
+      "id": "hierophant",
+      "name": "The Hierophant",
+      "uprightMeaning": "Spiritual wisdom, religious beliefs, conformity, tradition",
+      "reversedMeaning": "Personal beliefs, freedom, challenging the status quo",
+      "imageUrl": "/cards/hierophant.svg"
+    },
+    {
+      "id": "lovers",
+      "name": "The Lovers",
+      "uprightMeaning": "Love, harmony, relationships, values alignment, choices",
+      "reversedMeaning": "Self-love, disharmony, imbalance, misalignment of values",
+      "imageUrl": "/cards/lovers.svg"
+    },
+    {
+      "id": "chariot",
+      "name": "The Chariot",
+      "uprightMeaning": "Control, willpower, success, action, determination",
+      "reversedMeaning": "Self-discipline, opposition, lack of direction",
+      "imageUrl": "/cards/chariot.svg"
+    },
+    {
+      "id": "strength",
+      "name": "Strength",
+      "uprightMeaning": "Strength, courage, persuasion, influence, compassion",
+      "reversedMeaning": "Inner strength, self-doubt, low energy, raw emotion",
+      "imageUrl": "/cards/strength.svg"
+    },
+    {
+      "id": "hermit",
+      "name": "The Hermit",
+      "uprightMeaning": "Soul searching, introspection, being alone, inner guidance",
+      "reversedMeaning": "Isolation, loneliness, withdrawal",
+      "imageUrl": "/cards/hermit.svg"
+    },
+    {
+      "id": "wheel-of-fortune",
+      "name": "Wheel of Fortune",
+      "uprightMeaning": "Good luck, karma, life cycles, destiny, turning point",
+      "reversedMeaning": "Bad luck, resistance to change, breaking cycles",
+      "imageUrl": "/cards/wheel-of-fortune.svg"
+    },
+    {
+      "id": "justice",
+      "name": "Justice",
+      "uprightMeaning": "Justice, fairness, truth, cause and effect, law",
+      "reversedMeaning": "Unfairness, lack of accountability, dishonesty",
+      "imageUrl": "/cards/justice.svg"
+    },
+    {
+      "id": "hanged-man",
+      "name": "The Hanged Man",
+      "uprightMeaning": "Pause, surrender, letting go, new perspectives",
+      "reversedMeaning": "Delays, resistance, stalling, indecision",
+      "imageUrl": "/cards/hanged-man.svg"
+    },
+    {
+      "id": "death",
+      "name": "Death",
+      "uprightMeaning": "Endings, change, transformation, transition",
+      "reversedMeaning": "Resistance to change, personal transformation, inner purging",
+      "imageUrl": "/cards/death.svg"
+    },
+    {
+      "id": "temperance",
+      "name": "Temperance",
+      "uprightMeaning": "Balance, moderation, patience, purpose",
+      "reversedMeaning": "Imbalance, excess, self-healing, re-alignment",
+      "imageUrl": "/cards/temperance.svg"
+    },
+    {
+      "id": "devil",
+      "name": "The Devil",
+      "uprightMeaning": "Shadow self, attachment, addiction, restriction, sexuality",
+      "reversedMeaning": "Releasing limiting beliefs, exploring dark thoughts, detachment",
+      "imageUrl": "/cards/devil.svg"
+    },
+    {
+      "id": "tower",
+      "name": "The Tower",
+      "uprightMeaning": "Sudden change, upheaval, chaos, revelation, awakening",
+      "reversedMeaning": "Personal transformation, fear of change, averting disaster",
+      "imageUrl": "/cards/tower.svg"
+    },
+    {
+      "id": "star",
+      "name": "The Star",
+      "uprightMeaning": "Hope, faith, purpose, renewal, spirituality",
+      "reversedMeaning": "Lack of faith, despair, self-trust, disconnection",
+      "imageUrl": "/cards/star.svg"
+    },
+    {
+      "id": "moon",
+      "name": "The Moon",
+      "uprightMeaning": "Illusion, fear, anxiety, subconscious, intuition",
+      "reversedMeaning": "Release of fear, repressed emotion, inner confusion",
+      "imageUrl": "/cards/moon.svg"
+    },
+    {
+      "id": "sun",
+      "name": "The Sun",
+      "uprightMeaning": "Positivity, fun, warmth, success, vitality",
+      "reversedMeaning": "Inner child, feeling down, overly optimistic",
+      "imageUrl": "/cards/sun.svg"
+    },
+    {
+      "id": "judgement",
+      "name": "Judgement",
+      "uprightMeaning": "Judgement, rebirth, inner calling, absolution",
+      "reversedMeaning": "Self-doubt, inner critic, ignoring the call",
+      "imageUrl": "/cards/judgement.svg"
+    },
+    {
+      "id": "world",
+      "name": "The World",
+      "uprightMeaning": "Completion, accomplishment, travel, fulfillment",
+      "reversedMeaning": "Seeking personal closure, short-cuts, delays",
+      "imageUrl": "/cards/world.svg"
+    }
+  ]
+}

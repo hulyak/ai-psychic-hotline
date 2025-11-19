@@ -1,0 +1,144 @@
+{
+  "cards": [
+    {
+      "id": "user-need",
+      "name": "The User Need",
+      "uprightMeaning": "Clear user pain point, validated demand, strong product-market fit signals",
+      "reversedMeaning": "Assumed need without validation, building for yourself not users, solution looking for a problem",
+      "imageUrl": "/cards/fool.svg"
+    },
+    {
+      "id": "market-timing",
+      "name": "The Market Timing",
+      "uprightMeaning": "Perfect timing, market ready for innovation, early mover advantage",
+      "reversedMeaning": "Too early or too late, market not ready, missed the window",
+      "imageUrl": "/cards/magician.svg"
+    },
+    {
+      "id": "technical-feasibility",
+      "name": "The Technical Path",
+      "uprightMeaning": "Achievable with current tech, clear implementation path, scalable architecture",
+      "reversedMeaning": "Technical debt ahead, over-engineered solution, unsustainable complexity",
+      "imageUrl": "/cards/high-priestess.svg"
+    },
+    {
+      "id": "resource-allocation",
+      "name": "The Resources",
+      "uprightMeaning": "Sufficient budget and team, right skills available, sustainable burn rate",
+      "reversedMeaning": "Resource constraints, skill gaps, unsustainable spending",
+      "imageUrl": "/cards/empress.svg"
+    },
+    {
+      "id": "competitive-landscape",
+      "name": "The Competition",
+      "uprightMeaning": "Clear differentiation, defensible moat, unique value proposition",
+      "reversedMeaning": "Crowded market, commoditized offering, no clear advantage",
+      "imageUrl": "/cards/emperor.svg"
+    },
+    {
+      "id": "stakeholder-alignment",
+      "name": "The Alignment",
+      "uprightMeaning": "Leadership buy-in, team consensus, clear shared vision",
+      "reversedMeaning": "Conflicting priorities, political resistance, misaligned incentives",
+      "imageUrl": "/cards/hierophant.svg"
+    },
+    {
+      "id": "user-experience",
+      "name": "The Experience",
+      "uprightMeaning": "Intuitive design, delightful interactions, solves user friction",
+      "reversedMeaning": "Confusing interface, poor usability, creates new problems",
+      "imageUrl": "/cards/lovers.svg"
+    },
+    {
+      "id": "go-to-market",
+      "name": "The Launch",
+      "uprightMeaning": "Clear distribution strategy, strong positioning, effective messaging",
+      "reversedMeaning": "Unclear channels, weak positioning, poor market fit",
+      "imageUrl": "/cards/chariot.svg"
+    },
+    {
+      "id": "data-insights",
+      "name": "The Metrics",
+      "uprightMeaning": "Strong signals in data, clear success metrics, measurable impact",
+      "reversedMeaning": "Vanity metrics, unclear KPIs, data doesn't support hypothesis",
+      "imageUrl": "/cards/strength.svg"
+    },
+    {
+      "id": "customer-feedback",
+      "name": "The Voice",
+      "uprightMeaning": "Enthusiastic early adopters, positive feedback loops, organic advocacy",
+      "reversedMeaning": "Lukewarm reception, feature requests diverge, churn signals",
+      "imageUrl": "/cards/hermit.svg"
+    },
+    {
+      "id": "pivot-potential",
+      "name": "The Pivot",
+      "uprightMeaning": "Flexibility to adapt, learning from failures, iterative improvement",
+      "reversedMeaning": "Locked into wrong direction, sunk cost fallacy, resistance to change",
+      "imageUrl": "/cards/wheel-of-fortune.svg"
+    },
+    {
+      "id": "team-capability",
+      "name": "The Team",
+      "uprightMeaning": "Right expertise, strong execution, collaborative culture",
+      "reversedMeaning": "Skill mismatches, execution gaps, team dysfunction",
+      "imageUrl": "/cards/justice.svg"
+    },
+    {
+      "id": "long-term-vision",
+      "name": "The Vision",
+      "uprightMeaning": "Clear roadmap, sustainable strategy, long-term value creation",
+      "reversedMeaning": "Short-term thinking, no clear direction, unsustainable model",
+      "imageUrl": "/cards/hanged-man.svg"
+    },
+    {
+      "id": "risk-management",
+      "name": "The Risk",
+      "uprightMeaning": "Calculated risks, mitigation strategies, acceptable downside",
+      "reversedMeaning": "Unmanaged risks, blind spots, catastrophic failure potential",
+      "imageUrl": "/cards/death.svg"
+    },
+    {
+      "id": "integration-complexity",
+      "name": "The Integration",
+      "uprightMeaning": "Smooth integration, compatible systems, minimal disruption",
+      "reversedMeaning": "Integration hell, incompatible systems, major technical debt",
+      "imageUrl": "/cards/temperance.svg"
+    },
+    {
+      "id": "regulatory-compliance",
+      "name": "The Compliance",
+      "uprightMeaning": "Clear regulatory path, manageable compliance, legal clarity",
+      "reversedMeaning": "Regulatory uncertainty, compliance burden, legal risks",
+      "imageUrl": "/cards/devil.svg"
+    },
+    {
+      "id": "scalability",
+      "name": "The Scale",
+      "uprightMeaning": "Built to scale, efficient growth path, sustainable unit economics",
+      "reversedMeaning": "Scaling challenges, inefficient growth, broken unit economics",
+      "imageUrl": "/cards/tower.svg"
+    },
+    {
+      "id": "innovation-potential",
+      "name": "The Innovation",
+      "uprightMeaning": "Novel approach, breakthrough potential, paradigm shift",
+      "reversedMeaning": "Incremental improvement, me-too feature, no real innovation",
+      "imageUrl": "/cards/star.svg"
+    },
+    {
+      "id": "customer-retention",
+      "name": "The Retention",
+      "uprightMeaning": "Strong retention, habit-forming, high lifetime value",
+      "reversedMeaning": "High churn, one-time use, low engagement",
+      "imageUrl": "/cards/moon.svg"
+    },
+    {
+      "id": "revenue-model",
+      "name": "The Monetization",
+      "uprightMeaning": "Clear revenue path, willing-to-pay customers, sustainable pricing",
+      "reversedMeaning": "Unclear monetization, price resistance, unsustainable model",
+      "imageUrl": "/cards/sun.svg"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Test After Service Change",
+  "description": "Automatically run tests when service files are modified",
+  "trigger": {
+    "type": "file_saved",
+    "pattern": "src/services/**/*.ts"
+  },
+  "actions": [
+    {
+      "type": "command",
+      "command": "npm run test:ci",
+      "description": "Run Jest tests in CI mode"
+    }
+  ],
+  "enabled": true
+}

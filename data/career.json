@@ -1,0 +1,77 @@
+{
+  "deckName": "Career Guidance Deck",
+  "deckType": "career",
+  "description": "Professional guidance and career insights",
+  "cards": [
+    {
+      "id": "opportunity",
+      "name": "The Opportunity",
+      "uprightMeaning": "A new door opens. Recognition, promotion, or unexpected chance for growth.",
+      "reversedMeaning": "Missed chances, hesitation, or timing not yet right for advancement.",
+      "imageUrl": "/cards/fool.svg"
+    },
+    {
+      "id": "mentor",
+      "name": "The Mentor",
+      "uprightMeaning": "Guidance from experienced colleague. Learning, wisdom, professional development.",
+      "reversedMeaning": "Lack of support, need to trust your own judgment, self-reliance required.",
+      "imageUrl": "/cards/hierophant.svg"
+    },
+    {
+      "id": "collaboration",
+      "name": "The Collaboration",
+      "uprightMeaning": "Teamwork, partnerships, synergy. Success through cooperation and shared goals.",
+      "reversedMeaning": "Conflict, miscommunication, or need to work independently for now.",
+      "imageUrl": "/cards/lovers.svg"
+    },
+    {
+      "id": "challenge",
+      "name": "The Challenge",
+      "uprightMeaning": "Obstacles that build strength. Difficult project that leads to growth.",
+      "reversedMeaning": "Avoiding necessary difficulties, or challenge is lifting.",
+      "imageUrl": "/cards/tower.svg"
+    },
+    {
+      "id": "balance",
+      "name": "The Balance",
+      "uprightMeaning": "Work-life harmony. Fair decisions, equilibrium between competing demands.",
+      "reversedMeaning": "Burnout, imbalance, need to reassess priorities.",
+      "imageUrl": "/cards/justice.svg"
+    },
+    {
+      "id": "innovation",
+      "name": "The Innovation",
+      "uprightMeaning": "Creative solutions, new approaches, breakthrough thinking.",
+      "reversedMeaning": "Sticking to old methods, resistance to change, creative block.",
+      "imageUrl": "/cards/magician.svg"
+    },
+    {
+      "id": "leadership",
+      "name": "The Leadership",
+      "uprightMeaning": "Taking charge, authority, responsibility. Time to lead.",
+      "reversedMeaning": "Micromanagement, abuse of power, or not ready to lead yet.",
+      "imageUrl": "/cards/emperor.svg"
+    },
+    {
+      "id": "transition",
+      "name": "The Transition",
+      "uprightMeaning": "Career change, transformation, ending one phase to begin another.",
+      "reversedMeaning": "Resistance to change, fear of unknown, clinging to familiar.",
+      "imageUrl": "/cards/death.svg"
+    },
+    {
+      "id": "success",
+      "name": "The Success",
+      "uprightMeaning": "Achievement, recognition, goals reached. Celebration of accomplishments.",
+      "reversedMeaning": "Delayed success, need for patience, or redefining what success means.",
+      "imageUrl": "/cards/world.svg"
+    },
+    {
+      "id": "reflection",
+      "name": "The Reflection",
+      "uprightMeaning": "Time to pause, assess, and plan. Strategic thinking needed.",
+      "reversedMeaning": "Overthinking, analysis paralysis, or avoiding necessary introspection.",
+      "imageUrl": "/cards/hermit.svg"
+    }
+  ]
+}

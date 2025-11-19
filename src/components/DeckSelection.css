@@ -1,0 +1,133 @@
+.deck-selection-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.deck-selection-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.deck-selection-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #f97316;
+  text-shadow: 0 0 30px rgba(249, 115, 22, 0.5);
+  margin-bottom: 1rem;
+}
+
+.deck-selection-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  color: #94a3b8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.deck-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.deck-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(11, 17, 32, 0.9) 0%, rgba(2, 6, 23, 0.95) 100%);
+  border: 2px solid rgba(249, 115, 22, 0.3);
+  border-radius: 1rem;
+  padding: 2.5rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  text-align: center;
+}
+
+.deck-card:hover {
+  transform: translateY(-8px);
+  border-color: #f97316;
+  box-shadow: 0 12px 40px rgba(249, 115, 22, 0.4);
+}
+
+.deck-card:hover .deck-card-glow {
+  opacity: 1;
+}
+
+.deck-card-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(249, 115, 22, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.deck-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 12px rgba(249, 115, 22, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.deck-card:hover .deck-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.deck-name {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.deck-card:hover .deck-name {
+  color: #f97316;
+}
+
+.deck-description {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .deck-selection-title {
+    font-size: 2rem;
+  }
+
+  .deck-selection-subtitle {
+    font-size: 1rem;
+  }
+
+  .deck-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .deck-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .deck-icon {
+    font-size: 3rem;
+  }
+
+  .deck-name {
+    font-size: 1.25rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .deck-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

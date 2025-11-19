@@ -1,0 +1,16 @@
+{
+  "name": "Fortune API Smoke Test",
+  "description": "Test the fortune endpoint with sample questions after API changes",
+  "trigger": {
+    "type": "file_saved",
+    "pattern": "src/app/api/fortune/**/*.ts"
+  },
+  "actions": [
+    {
+      "type": "command",
+      "command": "node scripts/test-fortune-api.js",
+      "description": "Run fortune API smoke tests"
+    }
+  ],
+  "enabled": true
+}

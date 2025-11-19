@@ -1,0 +1,109 @@
+{
+  "movies": [
+    {
+      "id": "hereditary",
+      "title": "Hereditary",
+      "year": 2018,
+      "tags": ["family", "grief", "curse", "trauma", "secrets"],
+      "oneSentenceBlurb": "A family's dark secrets unravel after a tragic loss, revealing a sinister inheritance that spans generations."
+    },
+    {
+      "id": "midsommar",
+      "title": "Midsommar",
+      "year": 2019,
+      "tags": ["relationships", "betrayal", "isolation", "ritual", "transformation"],
+      "oneSentenceBlurb": "A couple's crumbling relationship faces its ultimate test during a seemingly idyllic Swedish summer festival."
+    },
+    {
+      "id": "the-witch",
+      "title": "The Witch",
+      "year": 2015,
+      "tags": ["family", "isolation", "curse", "faith", "temptation"],
+      "oneSentenceBlurb": "A Puritan family encounters forces of evil in the woods beyond their New England farm."
+    },
+    {
+      "id": "it-follows",
+      "title": "It Follows",
+      "year": 2014,
+      "tags": ["curse", "death", "youth", "fear", "inevitability"],
+      "oneSentenceBlurb": "A supernatural entity relentlessly pursues its victims in this modern take on inescapable doom."
+    },
+    {
+      "id": "the-babadook",
+      "title": "The Babadook",
+      "year": 2014,
+      "tags": ["grief", "family", "trauma", "isolation", "motherhood"],
+      "oneSentenceBlurb": "A widowed mother and her troubled son confront a sinister presence that emerges from a mysterious children's book."
+    },
+    {
+      "id": "black-swan",
+      "title": "Black Swan",
+      "year": 2010,
+      "tags": ["transformation", "ambition", "madness", "perfectionism", "rivalry"],
+      "oneSentenceBlurb": "A ballet dancer's pursuit of perfection leads her down a dark path of psychological terror and self-destruction."
+    },
+    {
+      "id": "the-lighthouse",
+      "title": "The Lighthouse",
+      "year": 2019,
+      "tags": ["isolation", "madness", "power", "obsession", "masculinity"],
+      "oneSentenceBlurb": "Two lighthouse keepers descend into madness while stranded on a remote island."
+    },
+    {
+      "id": "suspiria",
+      "title": "Suspiria",
+      "year": 2018,
+      "tags": ["power", "ritual", "transformation", "femininity", "violence"],
+      "oneSentenceBlurb": "A young dancer joins a prestigious academy that harbors dark secrets and ancient powers."
+    },
+    {
+      "id": "the-love-witch",
+      "title": "The Love Witch",
+      "year": 2016,
+      "tags": ["love", "obsession", "power", "femininity", "manipulation"],
+      "oneSentenceBlurb": "A modern witch uses spells and potions to make men fall in love with her, with deadly consequences."
+    },
+    {
+      "id": "annihilation",
+      "title": "Annihilation",
+      "year": 2018,
+      "tags": ["transformation", "identity", "mystery", "science", "self-destruction"],
+      "oneSentenceBlurb": "A biologist ventures into a mysterious zone where the laws of nature don't apply."
+    },
+    {
+      "id": "raw",
+      "title": "Raw",
+      "year": 2016,
+      "tags": ["transformation", "youth", "identity", "desire", "awakening"],
+      "oneSentenceBlurb": "A vegetarian veterinary student discovers her true nature after a hazing ritual awakens disturbing appetites."
+    },
+    {
+      "id": "mother",
+      "title": "Mother!",
+      "year": 2017,
+      "tags": ["relationships", "chaos", "creation", "destruction", "sacrifice"],
+      "oneSentenceBlurb": "A couple's tranquil existence is disrupted by uninvited guests in this allegorical nightmare."
+    },
+    {
+      "id": "the-wailing",
+      "title": "The Wailing",
+      "year": 2016,
+      "tags": ["mystery", "faith", "family", "evil", "doubt"],
+      "oneSentenceBlurb": "A policeman investigates a series of mysterious deaths in his village, questioning everything he believes."
+    },
+    {
+      "id": "under-the-skin",
+      "title": "Under the Skin",
+      "year": 2013,
+      "tags": ["identity", "isolation", "humanity", "predator", "transformation"],
+      "oneSentenceBlurb": "An alien entity preys on men in Scotland while slowly discovering what it means to be human."
+    },
+    {
+      "id": "we-need-to-talk-about-kevin",
+      "title": "We Need to Talk About Kevin",
+      "year": 2011,
+      "tags": ["family", "guilt", "motherhood", "violence", "responsibility"],
+      "oneSentenceBlurb": "A mother grapples with guilt and responsibility after her son commits a horrific act of violence."
+    }
+  ]
+}

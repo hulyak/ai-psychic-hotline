@@ -1,0 +1,144 @@
+{
+  "cards": [
+    {
+      "id": "rest",
+      "name": "The Rest",
+      "uprightMeaning": "Quality sleep, restorative breaks, honoring your need for downtime",
+      "reversedMeaning": "Burnout, exhaustion, pushing beyond healthy limits",
+      "imageUrl": "/cards/fool.svg"
+    },
+    {
+      "id": "boundaries",
+      "name": "The Boundary",
+      "uprightMeaning": "Healthy limits, saying no with confidence, protecting your energy",
+      "reversedMeaning": "Overextension, people-pleasing, depleted from giving too much",
+      "imageUrl": "/cards/magician.svg"
+    },
+    {
+      "id": "nourishment",
+      "name": "The Nourishment",
+      "uprightMeaning": "Mindful eating, hydration, fueling your body with care",
+      "reversedMeaning": "Neglecting nutrition, emotional eating, disconnection from body's needs",
+      "imageUrl": "/cards/high-priestess.svg"
+    },
+    {
+      "id": "movement",
+      "name": "The Movement",
+      "uprightMeaning": "Joyful exercise, body awareness, energizing physical activity",
+      "reversedMeaning": "Sedentary patterns, forced exercise, disconnection from body",
+      "imageUrl": "/cards/empress.svg"
+    },
+    {
+      "id": "connection",
+      "name": "The Connection",
+      "uprightMeaning": "Meaningful relationships, quality time, feeling seen and heard",
+      "reversedMeaning": "Isolation, superficial interactions, loneliness despite company",
+      "imageUrl": "/cards/emperor.svg"
+    },
+    {
+      "id": "creativity",
+      "name": "The Creation",
+      "uprightMeaning": "Self-expression, playful exploration, creative flow",
+      "reversedMeaning": "Creative blocks, perfectionism, stifled self-expression",
+      "imageUrl": "/cards/hierophant.svg"
+    },
+    {
+      "id": "nature",
+      "name": "The Earth",
+      "uprightMeaning": "Time outdoors, grounding in nature, connection to natural rhythms",
+      "reversedMeaning": "Indoor confinement, disconnection from nature, artificial environments",
+      "imageUrl": "/cards/lovers.svg"
+    },
+    {
+      "id": "mindfulness",
+      "name": "The Presence",
+      "uprightMeaning": "Present moment awareness, meditation, conscious breathing",
+      "reversedMeaning": "Racing thoughts, constant distraction, living in past or future",
+      "imageUrl": "/cards/chariot.svg"
+    },
+    {
+      "id": "joy",
+      "name": "The Joy",
+      "uprightMeaning": "Laughter, play, activities that spark delight",
+      "reversedMeaning": "Joylessness, taking life too seriously, forgotten pleasures",
+      "imageUrl": "/cards/strength.svg"
+    },
+    {
+      "id": "solitude",
+      "name": "The Solitude",
+      "uprightMeaning": "Peaceful alone time, self-reflection, comfortable with own company",
+      "reversedMeaning": "Fear of being alone, constant need for external validation",
+      "imageUrl": "/cards/hermit.svg"
+    },
+    {
+      "id": "growth",
+      "name": "The Growth",
+      "uprightMeaning": "Learning, personal development, embracing change",
+      "reversedMeaning": "Stagnation, resistance to growth, comfort zone paralysis",
+      "imageUrl": "/cards/wheel-of-fortune.svg"
+    },
+    {
+      "id": "forgiveness",
+      "name": "The Release",
+      "uprightMeaning": "Self-compassion, letting go of grudges, healing old wounds",
+      "reversedMeaning": "Self-criticism, holding onto resentment, unprocessed pain",
+      "imageUrl": "/cards/justice.svg"
+    },
+    {
+      "id": "perspective",
+      "name": "The Perspective",
+      "uprightMeaning": "Seeing situations differently, reframing challenges, wisdom",
+      "reversedMeaning": "Stuck in one viewpoint, rigid thinking, missing the bigger picture",
+      "imageUrl": "/cards/hanged-man.svg"
+    },
+    {
+      "id": "letting-go",
+      "name": "The Release",
+      "uprightMeaning": "Releasing what no longer serves, healthy endings, making space for new",
+      "reversedMeaning": "Clinging to the past, fear of change, hoarding energy",
+      "imageUrl": "/cards/death.svg"
+    },
+    {
+      "id": "balance",
+      "name": "The Balance",
+      "uprightMeaning": "Work-life harmony, moderation, sustainable pace",
+      "reversedMeaning": "Imbalance, all-or-nothing thinking, unsustainable extremes",
+      "imageUrl": "/cards/temperance.svg"
+    },
+    {
+      "id": "authenticity",
+      "name": "The Truth",
+      "uprightMeaning": "Being yourself, honest self-expression, alignment with values",
+      "reversedMeaning": "Wearing masks, people-pleasing, disconnection from true self",
+      "imageUrl": "/cards/devil.svg"
+    },
+    {
+      "id": "transformation",
+      "name": "The Transformation",
+      "uprightMeaning": "Breakthrough moments, shedding old patterns, rebirth",
+      "reversedMeaning": "Resistance to change, clinging to familiar pain, fear of unknown",
+      "imageUrl": "/cards/tower.svg"
+    },
+    {
+      "id": "hope",
+      "name": "The Hope",
+      "uprightMeaning": "Optimism, faith in better days, seeing light ahead",
+      "reversedMeaning": "Despair, loss of hope, difficulty seeing possibilities",
+      "imageUrl": "/cards/star.svg"
+    },
+    {
+      "id": "intuition",
+      "name": "The Inner Voice",
+      "uprightMeaning": "Trusting gut feelings, inner wisdom, listening to your body",
+      "reversedMeaning": "Ignoring intuition, overthinking, disconnection from inner guidance",
+      "imageUrl": "/cards/moon.svg"
+    },
+    {
+      "id": "vitality",
+      "name": "The Vitality",
+      "uprightMeaning": "Energy, enthusiasm, feeling alive and vibrant",
+      "reversedMeaning": "Depletion, going through motions, loss of spark",
+      "imageUrl": "/cards/sun.svg"
+    }
+  ]
+}

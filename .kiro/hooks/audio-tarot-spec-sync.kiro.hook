@@ -1,0 +1,25 @@
+{
+  "enabled": true,
+  "name": "Audio & Tarot Spec Sync + Smoke Tests",
+  "description": "Watches for changes to audio (STT/TTS) and tarot-related files, then updates specs and runs smoke tests",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "src/backend/stt/**/*",
+      "src/backend/tts/**/*",
+      "src/app/api/stt/**/*",
+      "src/app/api/tts/**/*",
+      "public/cards/**/*",
+      "data/tarot.json",
+      "scripts/smoke-test-tts.sh",
+      "scripts/smoke-test-stt.sh",
+      "src/services/TarotDeck.ts",
+      "src/types/tarot.ts"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "You are the project agent for the AI Psychic Hotline app.\nAn event just occurred: one or more files related to audio or tarot images were saved.\nChanged files:\n{{changed_files}}\nThese files are part of one of these features:\n- voice-to-text (STT / Whisper),\n- text-to-speech (TTS),\n- tarot card image generation (DALL·E or similar),\n- tarot deck data (`tarot.json`).\nFollow this procedure in order:\n1) KEEP SPEC UP TO DATE\n- Open `.kiro/specs/ai-psychic-hotline/requirements.md` and `design.md`.\n- Check whether the behaviors implied by the changed files (STT, TTS, tarot image generation, or tarot deck changes) are fully and accurately described in the spec.\n- If not, update the relevant sections:\n  - In `requirements.md`, add or adjust EARS-style requirements for:\n    - STT flow (user speaks → transcript → question field),\n    - TTS flow (fortune → audio playback),\n    - tarot image workflow (generate/update card images from metadata).\n  - In `design.md`, document:\n    - any new endpoints (e.g. `/api/stt`, `/api/tts`),\n    - new modules or services (STTService, TTSService, TarotImageService),\n    - any changes to data models or response shapes.\n- Keep the structure and style of the existing spec consistent.\n2) RUN TESTS & SMOKE TESTS\n- After the spec is updated, run:\n  - `npm test` (or the project test command),\n  - `scripts/smoke-test-tts.sh` if it exists,\n  - `scripts/smoke-test-stt.sh` if it exists.\n- If any command fails:\n  - Inspect the error,\n  - Propose and implement minimal code changes to fix the issue,\n  - Re-run the relevant command(s) until they pass or you reach a reasonable stopping point.\n- If the smoke scripts don't exist yet, create simple ones that:\n  - Call `/api/tts` with a sample fortune and check the response,\n  - Call `/api/stt` with a mock/dummy audio payload or a test mode and check for a transcript.\n3) KEEP IMPLEMENTATION CONSISTENT\n- Ensure that:\n  - `src/backend/stt/*` and `src/backend/tts/*` match the API contracts in `design.md`.\n  - Tarot image generation scripts match the structure of `tarot.json` and the tarot data models.\n- Do not change the existing `/api/fortune` contract unless the spec is explicitly updated first.\nIMPORTANT:\n- Follow the project's existing steering docs, including the UI theme (Halloween, no purple).\n- Be explicit in any spec change so future tasks can rely on it."
+  }
+}

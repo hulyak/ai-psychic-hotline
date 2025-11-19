@@ -1,0 +1,16 @@
+{
+  "name": "Prompt QA Check",
+  "description": "Test fortune generation with canned questions when FortuneService is modified",
+  "trigger": {
+    "type": "manual",
+    "button_label": "🔮 Test Fortune Prompts"
+  },
+  "actions": [
+    {
+      "type": "command",
+      "command": "node scripts/test-fortune-prompts.js",
+      "description": "Generate fortunes with test questions to verify tone and quality"
+    }
+  ],
+  "enabled": true
+}

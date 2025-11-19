@@ -1,0 +1,132 @@
+/* ============================================
+   MOVIE ORACLE - POLISHED DESIGN
+   ============================================ */
+
+.movie-oracle-container {
+  position: relative;
+  padding: 2rem 1.75rem;
+  margin-top: 2.5rem;
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg, rgba(2, 6, 23, 0.45) 0%, rgba(17, 24, 39, 0.5) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  box-shadow:
+    0 6px 25px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(249, 115, 22, 0.15);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.movie-oracle-container:hover {
+  border-color: rgba(249, 115, 22, 0.5);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.5),
+    0 0 50px rgba(249, 115, 22, 0.25);
+}
+
+/* Decorative Glow */
+.movie-oracle-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8rem;
+  height: 8rem;
+  opacity: 0.1;
+  background: radial-gradient(circle at top left, var(--accent-primary) 0%, transparent 70%);
+  filter: blur(25px);
+  pointer-events: none;
+}
+
+/* Header */
+.movie-oracle-header {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
+  position: relative;
+  z-index: 10;
+}
+
+.movie-oracle-icon {
+  font-size: 1.875rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 10px rgba(249, 115, 22, 0.5));
+}
+
+.movie-oracle-title {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  text-shadow: 0 0 12px rgba(249, 115, 22, 0.3);
+  letter-spacing: 0.02em;
+}
+
+/* Content */
+.movie-oracle-content {
+  position: relative;
+  z-index: 10;
+}
+
+.movie-title {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--foreground);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.movie-blurb {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--muted);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (min-width: 768px) {
+  .movie-oracle-container {
+    padding: 2.25rem 2rem;
+    margin-top: 3rem;
+  }
+
+  .movie-oracle-icon {
+    font-size: 2.25rem;
+  }
+
+  .movie-oracle-title {
+    font-size: 1.25rem;
+  }
+
+  .movie-title {
+    font-size: 1.5rem;
+  }
+
+  .movie-blurb {
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY & MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .movie-oracle-container {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .movie-oracle-container {
+    border-width: 2px;
+  }
+}
