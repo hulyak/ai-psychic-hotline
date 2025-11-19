@@ -222,8 +222,6 @@ export default function Home() {
                   cards={readingData.cards}
                   realm={selectedRealm || 'fate'}
                   deckName="Traditional Tarot"
-                  ttsEnabled={true}
-                  voiceId={readingData.voiceRecommendation}
                 />
               </div>
             )}

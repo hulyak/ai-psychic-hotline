@@ -20,7 +20,7 @@ setInterval(() => {
 function getRateLimitKey(request: NextRequest): string {
   // Use IP address as key, fallback to a default if not available
   const forwarded = request.headers.get('x-forwarded-for');
-  const ip = forwarded ? forwarded.split(',')[0] : request.ip || 'unknown';
+  const ip = forwarded ? forwarded.split(',')[0] : 'unknown';
   return `ratelimit:${ip}`;
 }
 

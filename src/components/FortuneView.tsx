@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { MovieRecommendation } from '@/types/tarot';
 import MovieOracle from './MovieOracle';
 import FateMeter from './FateMeter';
@@ -23,8 +23,6 @@ interface FortuneViewProps {
   cards: Card[];
   realm: string;
   deckName: string;
-  ttsEnabled?: boolean;
-  voiceId?: string;
 }
 
 export default function FortuneView({
@@ -33,16 +31,11 @@ export default function FortuneView({
   onNewReading,
   cards,
   realm,
-  deckName,
-  ttsEnabled = false,
-  voiceId = 'onyx'
+  deckName
 }: FortuneViewProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [displayedFortune, setDisplayedFortune] = useState(fortune);
   const [showTypewriter, setShowTypewriter] = useState(true);
-  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
-  const [audioError, setAudioError] = useState<string>('');
-  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -52,15 +45,7 @@ export default function FortuneView({
     return () => clearTimeout(timer);
   }, [fortune]);
 
-  // Cleanup audio on unmount
-  useEffect(() => {
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
-      }
-    };
-  }, []);
+
 
   const handleFateChoice = (choice: 'accept' | 'defy' | null, extraSentence: string) => {
     if (choice) {
@@ -72,59 +57,7 @@ export default function FortuneView({
     }
   };
 
-  const handlePlayAudio = async () => {
-    // Stop current audio if playing
-    if (isPlayingAudio) {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
-      }
-      setIsPlayingAudio(false);
-      return;
-    }
 
-    try {
-      setIsPlayingAudio(true);
-      setAudioError('');
-
-      const response = await fetch('/api/speak', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          text: displayedFortune,
-          voice: voiceId
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to generate speech');
-      }
-
-      const audioBlob = await response.blob();
-      const audioUrl = URL.createObjectURL(audioBlob);
-      const audio = new Audio(audioUrl);
-      audioRef.current = audio;
-
-      audio.onended = () => {
-        setIsPlayingAudio(false);
-        URL.revokeObjectURL(audioUrl);
-      };
-
-      audio.onerror = () => {
-        setIsPlayingAudio(false);
-        setAudioError('The spirits cannot speak at this time.');
-        URL.revokeObjectURL(audioUrl);
-      };
-
-      await audio.play();
-    } catch (error) {
-      console.error('Audio playback error:', error);
-      setIsPlayingAudio(false);
-      setAudioError('The spirits cannot speak at this time.');
-    }
-  };
 
   return (
     <div className={`fortune-view-container ${isVisible ? 'visible' : ''}`}>
@@ -156,31 +89,11 @@ export default function FortuneView({
 
       {/* Controls */}
       <div className="fortune-controls">
-        {ttsEnabled && (
-          <RunestoneButton 
-            onClick={handlePlayAudio} 
-            variant="secondary"
-            disabled={isPlayingAudio}
-          >
-            <span className="fortune-btn-icon">
-              {isPlayingAudio ? '⏸️' : '🔊'}
-            </span>
-            <span> {isPlayingAudio ? 'The Spirits Speak...' : 'Hear Your Fortune'}</span>
-          </RunestoneButton>
-        )}
-        
         <RunestoneButton onClick={onNewReading} variant="primary">
           <span className="fortune-btn-icon">🔮</span>
           <span> New Reading</span>
         </RunestoneButton>
       </div>
-
-      {/* Audio Error Message */}
-      {audioError && (
-        <div className="audio-error-message">
-          {audioError}
-        </div>
-      )}
 
       {/* Movie Oracle */}
       {movieRecommendation && (
