@@ -90,14 +90,18 @@ export class ShareImageService {
     const startX = (this.WIDTH - totalWidth) / 2;
     const startY = 50;
 
+    // Load all card images first
+    const imagePromises = cards.slice(0, cardCount).map(card => this.loadImage(card.imageUrl));
+    const images = await Promise.all(imagePromises);
+
     for (let i = 0; i < cardCount; i++) {
       const card = cards[i];
       const x = startX + i * (this.CARD_WIDTH + 20);
       const y = startY;
 
-      // Draw card background
+      // Draw card border/background
       ctx.fillStyle = '#020617';
-      ctx.strokeStyle = '#f97316';
+      ctx.strokeStyle = card.orientation === 'upright' ? '#a3e635' : '#f97316';
       ctx.lineWidth = 3;
       
       // Rounded rectangle for card
@@ -105,16 +109,36 @@ export class ShareImageService {
       ctx.fill();
       ctx.stroke();
 
+      // Draw the actual card image
+      const img = images[i];
+      if (img) {
+        ctx.save();
+        
+        // Clip to rounded rectangle
+        this.roundRect(ctx, x + 5, y + 5, this.CARD_WIDTH - 10, this.CARD_HEIGHT - 10, 8);
+        ctx.clip();
+        
+        // Draw image
+        ctx.drawImage(img, x + 5, y + 5, this.CARD_WIDTH - 10, this.CARD_HEIGHT - 10);
+        
+        ctx.restore();
+      }
+
+      // Draw semi-transparent overlay for text readability
+      ctx.fillStyle = 'rgba(2, 6, 23, 0.7)';
+      this.roundRect(ctx, x, y + this.CARD_HEIGHT - 60, this.CARD_WIDTH, 60, 0);
+      ctx.fill();
+
       // Draw card name
       ctx.fillStyle = '#e2e8f0';
-      ctx.font = 'bold 14px system-ui';
+      ctx.font = 'bold 12px system-ui';
       ctx.textAlign = 'center';
       
       // Wrap card name if too long
       const maxWidth = this.CARD_WIDTH - 20;
       const words = card.name.split(' ');
       let line = '';
-      let lineY = y + 30;
+      let lineY = y + this.CARD_HEIGHT - 45;
       
       for (const word of words) {
         const testLine = line + word + ' ';
@@ -123,7 +147,7 @@ export class ShareImageService {
         if (metrics.width > maxWidth && line !== '') {
           ctx.fillText(line.trim(), x + this.CARD_WIDTH / 2, lineY);
           line = word + ' ';
-          lineY += 20;
+          lineY += 16;
         } else {
           line = testLine;
         }
@@ -131,7 +155,7 @@ export class ShareImageService {
       ctx.fillText(line.trim(), x + this.CARD_WIDTH / 2, lineY);
 
       // Draw orientation indicator
-      ctx.font = '12px system-ui';
+      ctx.font = '11px system-ui';
       ctx.fillStyle = card.orientation === 'upright' ? '#a3e635' : '#f97316';
       ctx.fillText(
         card.orientation === 'upright' ? '↑ Upright' : '↓ Reversed',
@@ -148,6 +172,22 @@ export class ShareImageService {
       ctx.stroke();
       ctx.shadowBlur = 0;
     }
+  }
+
+  /**
+   * Load an image from URL
+   */
+  private loadImage(url: string): Promise<HTMLImageElement | null> {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => resolve(img);
+      img.onerror = () => {
+        console.error('Failed to load card image:', url);
+        resolve(null);
+      };
+      img.src = url;
+    });
   }
 
   /**

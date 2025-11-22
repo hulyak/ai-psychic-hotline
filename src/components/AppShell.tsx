@@ -110,49 +110,51 @@ export default function AppShell({ children, onOpenSettings }: AppShellProps) {
       <div className="min-h-screen relative z-10">
         {/* Main content */}
         <div className="relative z-10 py-6 px-4 md:py-8 md:px-6">
+          {/* Settings button - fixed top right */}
+          {onOpenSettings && (
+            <button
+              onClick={onOpenSettings}
+              className="fixed top-4 right-4 p-3 rounded-lg transition-all duration-300 z-50"
+              style={{
+                background: 'rgba(249, 115, 22, 0.1)',
+                border: '2px solid rgba(249, 115, 22, 0.3)',
+                color: '#f97316',
+                fontSize: '1.5rem',
+                cursor: 'pointer',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(249, 115, 22, 0.2)';
+                e.currentTarget.style.boxShadow = '0 0 20px rgba(249, 115, 22, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'rgba(249, 115, 22, 0.1)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+              aria-label="Open settings"
+            >
+              ⚙️
+            </button>
+          )}
+
           {/* Header */}
           <header className="text-center mb-12 max-w-4xl mx-auto relative">
-            {/* Settings button - top right */}
-            {onOpenSettings && (
-              <button
-                onClick={onOpenSettings}
-                className="absolute top-0 right-0 p-3 rounded-lg transition-all duration-300"
-                style={{
-                  background: 'rgba(249, 115, 22, 0.1)',
-                  border: '2px solid rgba(249, 115, 22, 0.3)',
-                  color: '#f97316',
-                  fontSize: '1.5rem',
-                  cursor: 'pointer',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(249, 115, 22, 0.2)';
-                  e.currentTarget.style.boxShadow = '0 0 20px rgba(249, 115, 22, 0.4)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(249, 115, 22, 0.1)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-                aria-label="Open settings"
-              >
-                ⚙️
-              </button>
-            )}
             
             {/* Logo */}
-            <div className="flex justify-center mb-6" style={{ marginTop: '2rem' }}>
-              <img
-                src="/logo.jpeg"
-                alt="AI Psychic Hotline Logo"
+            <div className="flex justify-center" style={{ marginTop: '2rem', marginBottom: '2rem' }}>
+              <div
                 className="logo-horror-animation"
                 style={{
                   width: '80px',
                   height: '80px',
-                  maxWidth: '80px',
-                  maxHeight: '80px',
-                  objectFit: 'contain',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '4rem',
                   filter: 'drop-shadow(0 0 20px rgba(249, 115, 22, 0.8))',
                 }}
-              />
+              >
+                🔮
+              </div>
             </div>
             
             <style jsx>{`
@@ -186,21 +188,29 @@ export default function AppShell({ children, onOpenSettings }: AppShellProps) {
             `}</style>
 
             <h1 
-              className="text-5xl md:text-6xl mb-4 floating-header"
+              className="floating-header"
               style={{ 
                 fontFamily: 'var(--font-heading)',
+                fontSize: 'clamp(2.5rem, 8vw, 4rem)',
                 fontWeight: 700,
                 color: 'var(--accent-primary)',
-                letterSpacing: '0.05em'
+                letterSpacing: '0.05em',
+                marginBottom: '1.5rem',
+                textShadow: '0 0 30px rgba(249, 115, 22, 0.5), 0 2px 10px rgba(0, 0, 0, 0.8)',
+                lineHeight: 1.1
               }}
             >
               AI Psychic Hotline
             </h1>
             <p 
-              className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
               style={{ 
+                fontFamily: 'var(--font-body)',
+                fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
                 color: 'var(--text-secondary)',
-                fontFamily: 'var(--font-body)'
+                maxWidth: '42rem',
+                margin: '0 auto',
+                lineHeight: 1.6,
+                textShadow: '0 1px 4px rgba(0, 0, 0, 0.6)'
               }}
             >
               Ask a question. Draw the cards. Hear what the spirits say.

@@ -27,6 +27,10 @@ export default function SpiritSpeaker({ fortuneText, enabled = false, voiceId = 
     try {
       setIsPlaying(true);
 
+      // Use the provided voiceId or default to onyx
+      const selectedVoice = voiceId || 'onyx';
+      console.log('Using voice:', selectedVoice);
+
       const response = await fetch('/api/speak', {
         method: 'POST',
         headers: {
@@ -34,7 +38,7 @@ export default function SpiritSpeaker({ fortuneText, enabled = false, voiceId = 
         },
         body: JSON.stringify({
           text: fortuneText,
-          voice: voiceId // Use persona-specific voice
+          voice: selectedVoice
         }),
       });
 

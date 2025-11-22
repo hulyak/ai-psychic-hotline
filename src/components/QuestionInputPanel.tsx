@@ -2,22 +2,48 @@
 
 import { useState, ChangeEvent, FormEvent } from 'react';
 import VoiceInput from './VoiceInput';
+import { RealmMode } from '@/types/tarot';
 import './QuestionInputPanel.css';
 
 interface QuestionInputPanelProps {
   onSubmit: (question: string) => void;
   isLoading: boolean;
   voiceEnabled?: boolean;
+  realm?: RealmMode;
 }
+
+const SUGGESTED_QUESTIONS: Record<RealmMode, string[]> = {
+  love: [
+    "Will I find love this year?",
+    "Is my current relationship meant to last?",
+    "How can I heal from heartbreak?",
+    "Should I take a chance on someone new?"
+  ],
+  fate: [
+    "Should I take this new job opportunity?",
+    "What does my future hold?",
+    "Am I on the right path in life?",
+    "Will my hard work pay off?"
+  ],
+  shadows: [
+    "What am I most afraid of?",
+    "What hidden truth am I avoiding?",
+    "What darkness lurks in my future?",
+    "What secret will soon be revealed?"
+  ]
+};
 
 export default function QuestionInputPanel({
   onSubmit,
   isLoading,
-  voiceEnabled = false
+  voiceEnabled = false,
+  realm
 }: QuestionInputPanelProps) {
   const [questionText, setQuestionText] = useState('');
   const [validationError, setValidationError] = useState('');
   const maxLength = 500;
+
+  const suggestedQuestions = realm ? SUGGESTED_QUESTIONS[realm] : [];
 
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;
@@ -125,8 +151,29 @@ export default function QuestionInputPanel({
           </span>
         </button>
 
+        {/* Suggested questions */}
+        {!isLoading && questionText.trim().length === 0 && suggestedQuestions.length > 0 && (
+          <div className="mt-4">
+            <p className="text-sm mb-3" style={{ color: '#a68a6d' }}>
+              Or choose a question:
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {suggestedQuestions.map((question, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => setQuestionText(question)}
+                  className="suggested-question-button"
+                >
+                  {question}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Hint text */}
-        {!isLoading && questionText.trim().length === 0 && (
+        {!isLoading && questionText.trim().length === 0 && suggestedQuestions.length === 0 && (
           <p className="question-hint">
             The spirits await your question...
           </p>

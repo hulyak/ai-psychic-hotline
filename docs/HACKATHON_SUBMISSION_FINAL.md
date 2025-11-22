@@ -14,23 +14,28 @@ AI Psychic Hotline is a web app where you ask questions and get tarot readings f
 
 ### How it works
 
-1. Pick a realm (Love, Fate, or Shadows) - each has a different personality
-2. Type or speak your question
-3. Watch 3-5 tarot cards get drawn with animations
-4. Read your AI-generated fortune that references the specific cards
-5. Listen to it spoken in a spooky voice
-6. Get a horror movie recommendation that matches your reading
+1. **Choose your guide** - Open settings to select from 4 AI personas with different voices
+2. **Pick a realm** (Love, Fate, or Shadows) - each has a different personality
+3. **Ask your question** - Type or speak it (suggested questions provided)
+4. **Watch the cards** - 3-5 tarot cards get drawn with animations
+5. **Read your fortune** - AI-generated text that references the specific cards
+6. **Hear the spirits** - Listen to it spoken in your persona's voice
+7. **Get a movie** - Horror/thriller recommendation that matches your reading
+8. **Save your reading** - Generate a unique DALL-E image to download and share
 
 ### Features I built
 
-- 4 AI personas with different voices and tones
-- Traditional tarot deck (78 cards)
-- Voice input via Whisper
-- Text-to-speech with persona-matched voices
-- DALL-E generated card art (optional)
-- Movie recommendations based on card symbolism
-- Share readings as text or images
-- Responsive design for mobile
+- **Settings panel** to choose from 4 AI personas (Mystic, Wise Witch, Corporate Oracle, Kind Therapist)
+- Each persona has a unique voice and interpretation style
+- **Voice input** via Whisper with clear "Speak" button
+- **Text-to-speech** with persona-matched voices (onyx, shimmer, alloy, nova)
+- **DALL-E generated tarot card art** (optional, for individual cards)
+- **Generate reading images** - Create unique DALL-E visualizations of your entire reading
+- **Suggested questions** for each realm to help users get started
+- **Movie recommendations** based on card symbolism
+- **Share readings** as downloadable images with cards and fortune
+- Fate meter (accept/defy your fortune)
+
 
 ### The tech
 
@@ -58,17 +63,17 @@ I wrote PRD, SRS, and SDD documents before coding. Then I had Kiro transform the
 
 **Service-driven architecture**
 
-I kept business logic in services (`TarotDeck`, `FortuneService`, `MovieOracle`, etc.) and components pure UI. API routes stay thin and just delegate to services.
+I kept business logic in services (`TarotDeck`, `FortuneService`, `MovieOracle`, `VoiceService`, `WhisperService`, `CardImageService`, `ShareImageService`, `SoundService`, `Config`, `Logger`, etc.) and components pure UI. API routes stay thin and just delegate to services.
 
 **Steering documents**
 
 I created 6 steering docs that Kiro followed:
-- Engineering standards (architecture, TypeScript patterns)
+- Engineering standards (architecture, TypeScript patterns, security)
 - Psychic persona guidelines (fortune tone, length, quality)
 - Color rules (orange/green only, absolutely no purple)
 - Tech stack documentation
-- File organization patterns
-- Core features and UX principles
+- File organization patterns (structure.md)
+- Product overview and core features
 
 **Custom MCP tools**
 
@@ -152,6 +157,12 @@ DALL-E takes 20-30 seconds to generate images.
 
 I made it optional (checkbox), used default SVG cards for speed, ran parallel Promise.all() for multiple images, and added clear loading states with shuffling animation.
 
+**Security implementation**
+
+Production apps need proper security from day one.
+
+I implemented comprehensive security measures: rate limiting middleware (10 requests/min per IP), input sanitization utilities to prevent XSS/injection attacks, Content Security Policy headers, CORS configuration for production, security verification scripts, and HTTPS enforcement. All security measures are tested and documented.
+
 **Realm tone consistency**
 
 Fortunes sometimes drifted from realm personality.
@@ -168,7 +179,7 @@ I built custom MCP tools for domain-specific validation with quality checklists 
 
 **Production architecture in 3 days**
 
-I built 4,500 lines of maintainable code with clean service separation, comprehensive TypeScript types, stable API contracts, proper error handling, and security best practices.
+I built 5,650+ lines of maintainable code with clean service separation, comprehensive TypeScript types, stable API contracts, proper error handling, and production-ready security best practices.
 
 **MCP tools that work**
 
@@ -178,21 +189,29 @@ My custom validation tools caught issues standard tests missed, provided quantif
 
 My steering docs eliminated 90% of code review issues, maintained consistency across 30+ components, prevented purple from appearing, kept fortunes in character, and saved 23+ hours of corrections.
 
-**Four distinct AI personas**
+**Four distinct AI personas with settings panel**
 
-Each personality has a unique system prompt, matched TTS voice, consistent character, seamless realm integration, and professional output quality.
+Built a polished settings UI where users choose their guide. Each personality has a unique system prompt, matched TTS voice (onyx/shimmer/alloy/nova), consistent character, seamless realm integration, and professional output quality. The panel slides in smoothly with hover states and clear visual feedback.
 
-**Immersive atmosphere**
+**Immersive atmosphere with polished UI**
 
-The app feels like a real séance with 3D fog, ambient sound, card animations, spooky voices, in-character error messages, and attention to every detail.
+The app feels like a real séance with 3D fog, ambient sound, card animations, persona-specific voices, in-character error messages, and attention to every detail. Iterative UI polish with Kiro refined spacing, typography, and visual hierarchy across all components. Added features like suggested questions, reading image generation, and improved voice input clarity through conversational refinement.
 
 **Smart movie recommendations**
 
 The matching algorithm understands tarot symbolism (Death → transformation), maps realm tones to genres, considers question context, and provides surprisingly relevant suggestions.
 
+**Production-ready security**
+
+Comprehensive security implementation with rate limiting (10 req/min per IP), input sanitization against XSS/injection, Content Security Policy headers, CORS configuration, HTTPS enforcement, and security verification scripts.
+
+**Deployment documentation**
+
+Created extensive deployment guides covering Vercel, Netlify, Railway, and Docker deployments, with detailed API key setup instructions, troubleshooting guides, environment variable documentation, and production best practices.
+
 **Rapid development without sacrificing quality**
 
-I achieved 462% ROI on Kiro tooling time, saved 60+ hours through automation, got 90%+ of code ready immediately, accumulated zero technical debt, and have comprehensive test coverage.
+I achieved 462% ROI on Kiro tooling time, saved 60+ hours through automation, got 90%+ of code ready immediately, accumulated zero technical debt, and have comprehensive test coverage. Added major features like settings panel, persona selection, and DALL-E reading image generation in under an hour through conversational iteration with Kiro.
 
 ## What I learned
 
@@ -236,6 +255,57 @@ You can't just mock AI APIs. I needed smoke tests that hit real endpoints to val
 
 Writing steering docs, specs, and quality guidelines isn't overhead. It's how you communicate requirements to AI assistants. Better documentation = better code generation = faster development.
 
+**Security can't be an afterthought**
+
+I built security in from the start: rate limiting, input sanitization, CSP headers, CORS configuration. This prevented vulnerabilities and made the app production-ready. Security verification scripts ensure nothing slips through.
+
+**Deployment documentation matters**
+
+I created comprehensive deployment guides (README, SETUP_GUIDE.md, DEPLOYMENT.md) covering multiple platforms, API key setup, troubleshooting, and production best practices. This makes the project accessible to others and deployment-ready.
+
+## Additional features built
+
+After the initial hackathon, I continued development to make the app production-ready:
+
+**Security hardening**
+- Rate limiting middleware (10 requests/min per IP)
+- Input sanitization utilities (XSS/injection prevention)
+- Content Security Policy headers
+- CORS configuration for production
+- Security verification scripts
+- Comprehensive test coverage for security features
+
+**Multiple deck support**
+- Traditional Tarot (22 Major Arcana)
+- Career Guidance deck
+- Product Decision deck
+- Self-Care deck
+- Easy framework for adding custom decks
+
+**Enhanced UX**
+- Ambient soundscape with card flip effects
+- 3D volumetric fog with Vanta.js
+- Fate meter (accept/defy your fortune)
+- Share readings as images
+- Accessibility controls
+- Smooth animations and transitions
+
+**Production deployment**
+- Comprehensive deployment documentation (DEPLOYMENT.md)
+- Setup guide with API key instructions (SETUP_GUIDE.md)
+- Environment variable templates
+- Support for Vercel, Netlify, Railway, Docker
+- Troubleshooting guides
+- Production best practices
+
+**Developer experience**
+- Config service for centralized settings
+- Logger service for structured logging
+- Sound service for audio management
+- Share image service for social media
+- Comprehensive test suite (28 tests passing)
+- TypeScript strict mode throughout
+
 ## What's next
 
 **Phase 2: Journaling (planned)**
@@ -263,16 +333,54 @@ Writing steering docs, specs, and quality guidelines isn't overhead. It's how yo
 - Cache DALL-E images
 - Add analytics
 - A/B test fortune styles
-- Implement rate limiting
+- ~~Implement rate limiting~~ ✅ Done
+- Deploy to production (Vercel/Netlify)
 
 **Quality enhancements**
-- Add 6+ new personas
-- Expand to 10+ decks
+- Add 6+ new personas (currently have 4)
+- ~~Expand to multiple decks~~ ✅ Done (4 decks)
 - Improve movie algorithm
 - More TTS voices
 - Enhanced card animations
+- Better mobile experience
 
 ---
+
+## Project stats
+
+**Code metrics:**
+- 5,650+ lines of TypeScript/React code
+- 49 source files (components, services, utilities)
+- 28 tests passing (100% pass rate)
+- 11 services with clean separation of concerns
+- 4 complete tarot decks with 22+ cards each
+- 15 movie recommendations with smart matching
+- 4 AI personas with distinct personalities
+
+**Documentation:**
+- 6 steering documents for Kiro
+- 3 specification documents (requirements, design, tasks)
+- 4 comprehensive guides (README, SETUP, DEPLOYMENT, SECURITY)
+- 10+ additional documentation files
+- Complete API documentation
+- Troubleshooting guides
+
+**Quality assurance:**
+- 4 custom MCP validation tools
+- 3 automated agent hooks
+- Security verification scripts
+- Fortune quality testing
+- Deck validation
+- Image verification
+
+**Production readiness:**
+- Rate limiting (10 req/min)
+- Input sanitization
+- Security headers (CSP, CORS, etc.)
+- Error handling throughout
+- Deployment guides for 4 platforms
+- Environment configuration
+- Monitoring and logging
 
 ## Final thoughts
 
@@ -280,6 +388,8 @@ I built a production-quality app with sophisticated AI integrations in a hackath
 
 The combination of Claude for fortunes, OpenAI for voice features, and Kiro for development created a workflow that was both fast and rigorous. I didn't sacrifice quality for speed.
 
-The result is an app that's technically solid, genuinely fun to use, and demonstrates what's possible with AI-powered entertainment.
+After the initial hackathon, I continued development to add security hardening, multiple deck support, comprehensive deployment documentation, and production-ready features. The result is an app that's not just a demo—it's ready to deploy.
+
+The app is technically solid, genuinely fun to use, secure, well-documented, and demonstrates what's possible when you combine AI-powered entertainment with professional development practices.
 
 **The spirits await your questions.** 🔮

@@ -65,6 +65,8 @@ export default function Home() {
     setViewState('loading');
     setErrorMessage('');
 
+    console.log('Submitting with persona:', selectedPersona);
+
     try {
       const response = await fetch('/api/fortune', {
         method: 'POST',
@@ -85,6 +87,8 @@ export default function Home() {
       if (!response.ok) {
         throw new Error(data.error || 'Failed to generate reading');
       }
+
+      console.log('Received voiceRecommendation:', data.voiceRecommendation);
 
       setReadingData(data);
       setViewState('display');
@@ -116,13 +120,19 @@ export default function Home() {
     setViewState('input');
   };
 
+  const handleSelectPersona = (persona: PersonaType) => {
+    console.log('Persona changed to:', persona);
+    console.log('Note: Get a NEW reading to hear the new voice');
+    setSelectedPersona(persona);
+  };
+
   return (
     <>
       <SettingsPanel
         isOpen={settingsOpen}
         onClose={() => setSettingsOpen(false)}
         selectedPersona={selectedPersona}
-        onSelectPersona={setSelectedPersona}
+        onSelectPersona={handleSelectPersona}
       />
       
       <AppShell onOpenSettings={() => setSettingsOpen(true)}>
@@ -156,7 +166,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto space-y-8">
             {/* Realm info */}
             {selectedRealm && (
-              <div className="flex justify-center">
+              <div className="flex justify-center" style={{ marginTop: '2rem' }}>
                 <RealmBanner 
                   mode={selectedRealm} 
                   onChangeRealm={handleChangeRealm}
@@ -171,6 +181,7 @@ export default function Home() {
                   onSubmit={handleSubmitQuestion}
                   isLoading={false}
                   voiceEnabled={true}
+                  realm={selectedRealm || undefined}
                 />
                 
                 {/* AI Features Toggle */}

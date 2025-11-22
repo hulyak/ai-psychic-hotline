@@ -7,6 +7,7 @@ import FateMeter from './FateMeter';
 import ShareReading from './ShareReading';
 import TypewriterText from './TypewriterText';
 import RunestoneButton from './RunestoneButton';
+import ReadingImageGenerator from './ReadingImageGenerator';
 import './FortuneView.css';
 
 interface Card {
@@ -99,6 +100,13 @@ export default function FortuneView({
       {movieRecommendation && (
         <MovieOracle movieRecommendation={movieRecommendation} />
       )}
+
+      {/* Reading Image Generator */}
+      <ReadingImageGenerator
+        fortune={displayedFortune}
+        cards={cards}
+        realm={realm}
+      />
 
       {/* Fate Meter */}
       <FateMeter onFateChoice={handleFateChoice} />

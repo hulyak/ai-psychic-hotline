@@ -319,3 +319,41 @@
     border: 2px solid var(--accent-primary);
   }
 }
+
+/* ============================================
+   SUGGESTED QUESTIONS
+   ============================================ */
+
+.suggested-question-button {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  padding: 0.625rem 1rem;
+  border-radius: 0.75rem;
+  background: rgba(45, 24, 16, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  color: #d4b896;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.suggested-question-button:hover {
+  background: rgba(249, 115, 22, 0.15);
+  border-color: rgba(249, 115, 22, 0.6);
+  color: #f5e6d3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+.suggested-question-button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .suggested-question-button {
+    font-size: 0.8125rem;
+    padding: 0.5rem 0.875rem;
+  }
+}

@@ -43,28 +43,58 @@ export default function SettingsPanel({
       >
         {/* Header */}
         <div 
-          className="sticky top-0 z-10 p-6 flex items-center justify-between"
+          className="sticky top-0 z-10 flex items-center justify-between"
           style={{
+            padding: '1.5rem 2rem',
             background: 'rgba(2, 6, 23, 0.95)',
             backdropFilter: 'blur(10px)',
-            borderBottom: '1px solid rgba(249, 115, 22, 0.3)',
+            borderBottom: '2px solid rgba(249, 115, 22, 0.3)',
+            boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)'
           }}
         >
-          <h2 
-            className="text-2xl font-bold"
-            style={{ color: '#f97316' }}
-          >
-            ⚙️ Settings
-          </h2>
+          <div className="flex items-center gap-3">
+            <span style={{ fontSize: '1.75rem', filter: 'drop-shadow(0 0 10px rgba(249, 115, 22, 0.6))' }}>
+              ⚙️
+            </span>
+            <h2 
+              style={{ 
+                fontFamily: 'var(--font-heading)',
+                fontSize: '1.5rem',
+                fontWeight: 700,
+                color: '#f97316',
+                margin: 0,
+                letterSpacing: '0.02em',
+                textShadow: '0 0 12px rgba(249, 115, 22, 0.3)'
+              }}
+            >
+              Settings
+            </h2>
+          </div>
           <button
             onClick={onClose}
-            className="text-3xl leading-none transition-colors"
+            className="transition-all duration-200"
             style={{ 
               color: '#94a3b8',
-              background: 'none',
-              border: 'none',
+              background: 'rgba(249, 115, 22, 0.1)',
+              border: '2px solid rgba(249, 115, 22, 0.3)',
+              borderRadius: '0.5rem',
               cursor: 'pointer',
-              padding: '0.5rem',
+              padding: '0.5rem 0.75rem',
+              fontSize: '1.5rem',
+              lineHeight: 1,
+              width: '40px',
+              height: '40px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'rgba(249, 115, 22, 0.2)';
+              e.currentTarget.style.color = '#f97316';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'rgba(249, 115, 22, 0.1)';
+              e.currentTarget.style.color = '#94a3b8';
             }}
             aria-label="Close settings"
           >
@@ -73,7 +103,7 @@ export default function SettingsPanel({
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div style={{ padding: '2rem' }}>
           <PersonaSelection
             selectedPersona={selectedPersona}
             onSelectPersona={onSelectPersona}

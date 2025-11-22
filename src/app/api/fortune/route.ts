@@ -51,6 +51,8 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { question, mode, generateImages = false, deckType, personaType } = body;
 
+    console.log('API received personaType:', personaType);
+
     // Validate question
     if (!question || typeof question !== 'string') {
       return NextResponse.json(
@@ -89,6 +91,8 @@ export async function POST(request: NextRequest) {
     const selectedDeckType: DeckType = deckType || 'tarot';
     const selectedPersonaType: PersonaType = personaType || 'mystic';
     const personaPreset = getPersonaPreset(selectedPersonaType);
+
+    console.log('Using persona:', selectedPersonaType, 'with voice:', personaPreset.voice);
 
     // Load appropriate deck
     const deck = getDeck(selectedDeckType);
