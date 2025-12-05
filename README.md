@@ -182,237 +182,50 @@ These tools caught quality issues that standard tests missed, resulting in a 33%
 ## 🎨 Customization
 
 ### Adding New Realms
-
 1. Update `src/types/tarot.ts` with new realm type
 2. Add realm context in `src/services/FortuneService.ts`
-3. Create realm-specific UI in `src/components/RealmSelection.tsx`
-4. Update persona guidelines in `.kiro/steering/psychic-persona.md`
+3. Update persona guidelines in `.kiro/steering/psychic-persona.md`
 
-### Adding New Decks
-
-1. Create deck JSON in `data/` following the Card interface
-2. Add deck info to `src/config/decks.ts`
-3. Update `TAROT_DECK_PATH` env var or add deck selector UI
-
-### Customizing Personas
-
+### Adding New Personas
 1. Define persona in `src/config/personas.ts`
 2. Add system prompt and voice preference
-3. Update `FortuneService` to use persona presets
 
 ### Audio Files
-
 Place audio files in `public/sounds/`:
-- `ambient.mp3` - Background atmosphere (30% volume)
-- `card-flip.mp3` - Card reveal sound (50% volume)
-
-Run `./scripts/setup-audio.sh` for guidance on finding audio files.
+- `ambient.mp3` - Background atmosphere
+- `card-flip.mp3` - Card reveal sound
 
 ## 🚀 Deployment
 
-### Hosting Options
+### Quick Deploy to Vercel
 
-The AI Psychic Hotline can be deployed to various platforms. Here are the recommended options:
+1. Push to GitHub
+2. Import to [Vercel](https://vercel.com)
+3. Add environment variables: `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`
+4. Deploy
 
-#### Vercel (Recommended)
+### Environment Variables
 
-Vercel is the easiest option for Next.js applications:
-
-1. **Push to GitHub**
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git remote add origin https://github.com/yourusername/ai-psychic-hotline.git
-   git push -u origin main
-   ```
-
-2. **Deploy to Vercel**
-   - Go to [vercel.com](https://vercel.com)
-   - Click "New Project"
-   - Import your GitHub repository
-   - Configure environment variables (see below)
-   - Click "Deploy"
-
-3. **Environment Variables in Vercel**
-   - Go to Project Settings → Environment Variables
-   - Add all variables from `.env.local.example`
-   - Required: `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`
-   - Click "Save"
-
-**Vercel Features:**
-- ✅ Automatic HTTPS
-- ✅ Global CDN
-- ✅ Serverless functions
-- ✅ Automatic deployments on git push
-- ✅ Free tier available
-
-#### Netlify
-
-Alternative hosting with similar features:
-
-1. **Build Settings**
-   - Build command: `npm run build`
-   - Publish directory: `.next`
-   - Node version: 18+
-
-2. **Environment Variables**
-   - Go to Site Settings → Environment Variables
-   - Add all required variables
-   - Deploy
-
-**Netlify Features:**
-- ✅ Automatic HTTPS
-- ✅ Global CDN
-- ✅ Serverless functions
-- ✅ Free tier available
-
-#### Railway
-
-For more control and database options:
-
-1. **Create New Project**
-   - Go to [railway.app](https://railway.app)
-   - Click "New Project"
-   - Select "Deploy from GitHub repo"
-
-2. **Configure**
-   - Add environment variables
-   - Railway will auto-detect Next.js
-   - Deploy
-
-**Railway Features:**
-- ✅ Automatic HTTPS
-- ✅ Database support (if needed later)
-- ✅ Custom domains
-- ✅ Usage-based pricing
-
-#### Docker Deployment
-
-For self-hosting or custom infrastructure:
-
-```dockerfile
-# Dockerfile (create this file)
-FROM node:18-alpine
-
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm ci --only=production
-
-COPY . .
-RUN npm run build
-
-EXPOSE 3000
-
-CMD ["npm", "start"]
-```
-
-Build and run:
-```bash
-docker build -t ai-psychic-hotline .
-docker run -p 3000:3000 --env-file .env.local ai-psychic-hotline
-```
-
-### Deployment Checklist
-
-Before deploying to production:
-
-- [ ] Set all required environment variables
-- [ ] Test fortune generation with production API keys
-- [ ] Verify HTTPS is enabled
-- [ ] Configure CORS allowed origins
-- [ ] Set up error monitoring (Sentry, LogRocket, etc.)
-- [ ] Enable rate limiting
-- [ ] Test on mobile devices
-- [ ] Verify audio files are accessible
-- [ ] Check card images load correctly
-- [ ] Run security verification: `npm run verify-security`
-- [ ] Test all three realms (Love, Fate, Shadows)
-- [ ] Test voice input and output features
-- [ ] Monitor API costs for first few days
-
-### Environment Variables for Production
-
-Required variables:
+Required:
 ```env
-ANTHROPIC_API_KEY=sk-ant-...
-OPENAI_API_KEY=sk-...
-NODE_ENV=production
+ANTHROPIC_API_KEY=your_key_here
+OPENAI_API_KEY=your_key_here
 ```
 
-Recommended variables:
+Optional (defaults provided):
 ```env
 LLM_MODEL=claude-3-5-sonnet-20241022
 LLM_TIMEOUT=5000
 MIN_CARDS=3
 MAX_CARDS=5
-TAROT_DECK_PATH=./data/tarot.json
-ALLOWED_ORIGINS=https://yourdomain.com,https://www.yourdomain.com
-RATE_LIMIT_MAX_REQUESTS=10
-RATE_LIMIT_WINDOW_MS=60000
 ```
-
-### Post-Deployment
-
-After deploying:
-
-1. **Test the Live Site**
-   - Complete a full reading
-   - Test voice features
-   - Check mobile responsiveness
-   - Verify error handling
-
-2. **Monitor Costs**
-   - Check Anthropic dashboard for Claude usage
-   - Check OpenAI dashboard for Whisper/TTS/DALL-E usage
-   - Set up billing alerts
-
-3. **Set Up Analytics** (Optional)
-   - Google Analytics
-   - Vercel Analytics
-   - Custom event tracking
-
-4. **Error Monitoring** (Optional)
-   - Sentry for error tracking
-   - LogRocket for session replay
-   - Custom logging service
-
-### Troubleshooting Deployment
-
-**Build Fails**
-- Check Node.js version (18+ required)
-- Verify all dependencies are in `package.json`
-- Check for TypeScript errors: `npm run build` locally
-
-**API Errors in Production**
-- Verify environment variables are set correctly
-- Check API keys are valid and have credits
-- Review server logs for detailed errors
-- Ensure CORS is configured for your domain
-
-**Images Not Loading**
-- Verify `public/cards/` directory is included in build
-- Check image paths are correct
-- Ensure CDN is serving static files
-
-**Audio Not Playing**
-- Verify `public/sounds/` directory is included
-- Check HTTPS is enabled (required for audio)
-- Test audio files locally first
-
-**Rate Limiting Issues**
-- Adjust `RATE_LIMIT_MAX_REQUESTS` if needed
-- Consider implementing user authentication
-- Monitor for abuse patterns
 
 ## 📚 Documentation
 
-- **[SETUP_GUIDE.md](SETUP_GUIDE.md)** - Detailed setup instructions
-- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Production deployment guide
-- **[docs/SECURITY.md](docs/SECURITY.md)** - Security implementation details
-- **[docs/HACKATHON_WRITEUP.md](docs/HACKATHON_WRITEUP.md)** - Development story
-- **[.kiro/specs/ai-psychic-hotline/](/.kiro/specs/ai-psychic-hotline/)** - Complete specifications
+- **[KIRO_USAGE.md](KIRO_USAGE.md)** - How Kiro was used to build this project
+- **[docs/HACKATHON_SUBMISSION_FINAL.md](docs/HACKATHON_SUBMISSION_FINAL.md)** - Hackathon submission details
+- **[.kiro/specs/](/.kiro/specs/)** - Complete specifications
+- **[.kiro/steering/](/.kiro/steering/)** - Project guidance docs
 
 ## 🛠️ Development with Kiro
 
@@ -439,215 +252,40 @@ This project was built using **spec-driven development** with Kiro:
 
 ### Common Issues
 
-#### "The spirits are silent" / Fortune Generation Fails
+**Fortune Generation Fails**
+- Check `ANTHROPIC_API_KEY` is set in `.env.local`
+- Verify API key is valid and has credits
+- Restart dev server after changing keys
 
-**Symptoms**: Error message when trying to get a reading
+**Voice Input Not Working**
+- Grant microphone permissions in browser
+- Check `OPENAI_API_KEY` is set
+- Use HTTPS or localhost (required for microphone)
 
-**Solutions**:
-1. Check `ANTHROPIC_API_KEY` is set correctly in `.env.local`
-2. Verify the API key is valid at [console.anthropic.com](https://console.anthropic.com)
-3. Check you have sufficient API credits
-4. Restart the development server after adding/changing keys
-5. Check server logs for detailed error messages
-6. Verify network connectivity to Anthropic API
+**Voice Output Not Playing**
+- Check `OPENAI_API_KEY` and credits
+- Ensure browser audio is not muted
+- Click button after user interaction (autoplay policy)
 
-#### Voice Input Not Working
+**Cards Not Displaying**
+- Verify `public/cards/` directory contains SVG files
+- Check browser console for 404 errors
+- Clear browser cache
 
-**Symptoms**: Microphone button doesn't work or transcription fails
-
-**Solutions**:
-1. Grant microphone permissions in your browser
-2. Check `OPENAI_API_KEY` is set in `.env.local`
-3. Verify you're using HTTPS or localhost (required for microphone access)
-4. Test microphone in browser settings
-5. Check OpenAI API credits
-6. Try a different browser (Chrome/Firefox recommended)
-7. Check browser console for permission errors
-
-#### Voice Output Not Playing
-
-**Symptoms**: "Hear the Spirits" button doesn't work
-
-**Solutions**:
-1. Check `OPENAI_API_KEY` is set in `.env.local`
-2. Verify OpenAI API credits are available
-3. Check browser audio is not muted
-4. Try clicking the button after user interaction (autoplay policy)
-5. Check browser console for audio errors
-6. Verify HTTPS is enabled (required for some browsers)
-
-#### DALL-E Card Generation Fails
-
-**Symptoms**: Cards don't generate or show errors
-
-**Solutions**:
-1. Verify `OPENAI_API_KEY` is set and valid
-2. Check OpenAI API credits (DALL-E is expensive)
-3. Wait longer - DALL-E can take 15-30 seconds per card
-4. Check rate limits on OpenAI account
-5. Try generating fewer cards (uncheck the option)
-6. Use default SVG cards instead (faster and free)
-
-#### Cards Not Displaying
-
-**Symptoms**: Blank spaces where cards should be
-
-**Solutions**:
-1. Check `public/cards/` directory contains SVG files
-2. Verify image paths in `data/tarot.json` are correct
-3. Check browser console for 404 errors
-4. Ensure build includes public directory
-5. Clear browser cache and reload
-
-#### Ambient Sound Not Playing
-
-**Symptoms**: No background audio or card flip sounds
-
-**Solutions**:
-1. Check `public/sounds/` directory contains audio files
-2. Run `./scripts/setup-audio.sh` for audio setup guidance
-3. Interact with the page first (browser autoplay policy)
-4. Check browser audio is not muted
-5. Verify audio files are in MP3 format
-6. Check browser console for audio loading errors
-
-#### 3D Fog Effect Not Showing
-
-**Symptoms**: Plain background instead of animated fog
-
-**Solutions**:
-1. Check browser supports WebGL (required for Three.js)
-2. Update graphics drivers
-3. Try a different browser
-4. Check browser console for Three.js errors
-5. Disable browser extensions that might block WebGL
-6. Verify JavaScript is enabled
-
-#### Build Errors
-
-**Symptoms**: `npm run build` fails
-
-**Solutions**:
-1. Delete `node_modules` and `.next` directories
-2. Run `npm install` again
-3. Check Node.js version (18+ required)
-4. Verify all environment variables are set
-5. Check for TypeScript errors: `npx tsc --noEmit`
-6. Review error messages for missing dependencies
-7. Clear npm cache: `npm cache clean --force`
-
-#### Rate Limiting Errors
-
-**Symptoms**: "Too many requests" errors
-
-**Solutions**:
-1. Wait 1 minute before trying again
-2. Adjust `RATE_LIMIT_MAX_REQUESTS` in `.env.local`
-3. Check for infinite loops in code
-4. Monitor API usage in dashboards
-5. Consider implementing user authentication
-
-#### Movie Recommendations Not Showing
-
-**Symptoms**: No movie card appears after reading
-
-**Solutions**:
-1. Check `data/movies.json` exists and is valid JSON
-2. Verify movie tags match reading themes
-3. Check browser console for errors
-4. Some readings may not match any movies (by design)
-5. Try different realms or questions
-
-#### Fate Meter Not Responding
-
-**Symptoms**: Accept/Defy buttons don't work
-
-**Solutions**:
-1. Check browser console for JavaScript errors
-2. Verify React state is updating
-3. Try refreshing the page
-4. Check for CSS conflicts hiding buttons
-5. Test in different browser
-
-### Getting Help
-
-If you're still experiencing issues:
-
-1. **Check the Logs**
-   - Browser console (F12 → Console tab)
-   - Server logs (terminal where `npm run dev` is running)
-   - Look for error messages and stack traces
-
-2. **Verify Environment**
-   - Node.js version: `node --version` (should be 18+)
-   - npm version: `npm --version`
-   - All environment variables are set
-
-3. **Test Components Individually**
-   - Test fortune API: `node scripts/test-fortune-api.js`
-   - Test MCP tools: `node scripts/test-with-mcp-tools.js`
-   - Run security checks: `npm run verify-security`
-
-4. **Check API Status**
-   - [Anthropic Status](https://status.anthropic.com/)
-   - [OpenAI Status](https://status.openai.com/)
-
-5. **Open an Issue**
-   - Include error messages
-   - Describe steps to reproduce
-   - Share relevant logs (remove API keys!)
-   - Mention your environment (OS, Node version, browser)
-
-### Performance Issues
-
-**Slow Fortune Generation**
-- Normal: 2-5 seconds
-- Check network latency to API
-- Verify API timeout settings
-- Monitor API dashboard for issues
-
-**Slow DALL-E Generation**
-- Normal: 15-30 seconds per card
-- This is expected behavior
-- Consider using default cards for faster experience
-- DALL-E 3 is inherently slow
-
-**Slow Page Load**
-- Check bundle size: `npm run build` and review output
-- Optimize images in `public/cards/`
-- Consider lazy loading components
-- Check network tab in browser DevTools
+**Build Errors**
+- Delete `node_modules` and `.next` directories
+- Run `npm install` again
+- Check Node.js version (18+ required)
 
 ## 🔒 Security
 
-The application implements comprehensive security measures to protect against common web vulnerabilities:
-
-### Security Features
-
-- **Input Sanitization** - All user inputs sanitized to prevent XSS and injection attacks
-- **Rate Limiting** - 10 requests per minute per IP to prevent abuse
-- **CORS Configuration** - Whitelist-based origin control for production
-- **Content Security Policy** - Strict CSP headers to prevent XSS
-- **Security Headers** - HSTS, X-Frame-Options, X-Content-Type-Options, etc.
-- **API Key Protection** - Keys stored server-side only, never exposed to frontend
-- **HTTPS Enforcement** - Automatic redirect to HTTPS in production
-
-### Security Verification
-
-Run the security verification script before deployment:
-
-```bash
-npm run verify-security
-```
-
-This checks for:
-- API keys in source code
-- Proper .gitignore configuration
-- Security middleware implementation
-- Input sanitization in API routes
+- Input sanitization to prevent XSS
+- Rate limiting (10 requests/min per IP)
+- API keys stored server-side only
+- CORS configuration for production
 - HTTPS enforcement
 
-For detailed security documentation, see [docs/SECURITY.md](docs/SECURITY.md).
+Run security checks: `npm run verify-security`
 
 ## 🎯 Quality Metrics
 
@@ -674,15 +312,7 @@ MIT License - see [LICENSE](LICENSE) file for details
 ## 🔗 Links
 
 - [Kiro Documentation](https://kiro.ai/docs)
-- [Hackathon Writeup](HACKATHON_WRITEUP.md)
-- [Live Demo](#) (coming soon)
-
-## 📧 Contact
-
-Questions? Issues? Want to share your fortune?
-
-- Open an issue on GitHub
-- Or consult the spirits... 🔮
+- [Hackathon Submission](docs/HACKATHON_SUBMISSION_FINAL.md)
 
 ---
 
